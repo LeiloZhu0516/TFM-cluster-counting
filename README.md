@@ -4,7 +4,7 @@ Specifically, this build includes customized fixes to **pair_lj_cut_dipole_cut**
 
 If you are a collaborator or reviewer wishing to reproduce these exact trajectories, please contact carles.calero@ub.edu for access to the modified LAMMPS
 
-The Python clustering analysis script (Count_Chains5.0.py) is completely standalone and process standard LAMMPS dump files (`.lammpstrj`). They can be tested using the sample trajectory provided.
+The Python clustering analysis script (Count_Chains5.0.py) is completely standalone and process standard LAMMPS dump files (`.lammpstrj`). They can be tested using the sample file (dump_gamma_6p48_Pe_2p00_tauR_0p33.lammpstrj) provided.
 
 ### Count_Chains5.0.py
 The code is designed to analyze the aggregation of active paramagnetic colloids. 
