@@ -145,29 +145,29 @@ def get_raddist(df, L, N, dr=0.1, max_d=6.5):
 # =============================================================================
 if __name__ == "__main__":
     # --- 1. Define Input Parameters ---
-    Gammalist = [15.68]
-    Pelist = [2, 3, 4, 5, 6, 40]
+    Gammalist = [6.48]
+    Pelist = [2.00]
     
     # Toggle for dynamic tauR vs explicit tauR list
-    use_dynamic_tauR = True  
+    use_dynamic_tauR = False  
     
     k_multiplier_list = np.arange(0.1, 3.01, 0.1) # Used if use_dynamic_tauR = True
-    tauR_explicit_list = [0.1, 0.5, 1.0, 2.0]     # Used if use_dynamic_tauR = False
+    tauR_explicit_list = [0.33]     # Used if use_dynamic_tauR = False
 
     # --- 2. Toggles for Specific Case Graphs ---
     plot_flags = {
-        'size_evol': False,
-        'size_dist': False,
-        'rad_dist': False,
+        'size_evol': True,
+        'size_dist': True,
+        'rad_dist': True,
         'energy_evol': False
     }
 
     # --- 3. Toggles for Aggregate Graphs ---
     aggregate_flags = {
-        'N_vs_tauR_tauNR': True,
+        'N_vs_tauR_tauNR': False,
         'N_vs_Gamma': True,  
         'N_vs_Pe': True,
-        'std_vs_tauR_tauNR': True,
+        'std_vs_tauR_tauNR': False,
         'heatmap_Pe_Gamma': False
     }
 
