@@ -1,0 +1,55 @@
+# PART A - ENERGY MINIMIZATION
+# 1) Initialization
+units lj
+dimension 2
+atom_style hybrid dipole sphere
+boundary p p p
+
+# 2) System definition
+region simbox block -100 100 -100 100 -0.5 0.5
+create_box 1 simbox
+create_atoms 1 random 3000 34134 simbox overlap 0.8
+
+# 3) Settings
+variable my_etotal equal etotal
+variable my_pe     equal pe
+variable my_ke     equal ke
+variable my_force  equal ${myforce}
+variable my_mu	   equal ${mymoment}
+variable my_var   equal ${myvar}
+
+mass 1 1.0
+set type 1 diameter 1.0 
+set type 1 mass 1.0
+set type 1 dipole ${my_mu} 0.0 0.0
+set type 1 charge 0.0
+pair_style lj/cut/dipole/cut 1.1225 20.0  
+pair_coeff 1 1 1.0 1.0
+
+
+# 4) Monitoring
+thermo 1000
+thermo_style custom step etotal 
+
+# 5) Run
+# run 0 post no
+minimize 1.0e-6 1.0e-6 100 10000
+
+# PART B - MOLECULAR DYNAMICS
+# 4) Monitoring
+thermo 1000
+thermo_style custom step temp etotal pe ke 
+dump mydmp all custom 5000 dump_${my_str}.lammpstrj id x y z
+
+# 5) Run
+
+fix my2d all enforce2d
+# fix mylgv all langevin 1.0 1.0 0.1 10917
+fix mybrownian all brownian/sphere 1.0 1294019 gamma_t 1.0 gamma_r ${my_var}
+fix myactive all propel/self dipole ${my_force}
+# fix output all ave/time 1 1 5000 v_my_etotal v_my_pe v_my_ke file energies_${my_str}.data
+timestep 0.00002
+run 3000000
+
+write_data ${my_str}.data
+
