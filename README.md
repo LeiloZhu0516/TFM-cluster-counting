@@ -6,6 +6,8 @@ If you are a collaborator or reviewer wishing to reproduce these exact trajector
 
 The Python clustering analysis script (Count_Chains5.0.py) is completely standalone and process standard LAMMPS dump files (`.lammpstrj`). They can be tested using the sample file (dump_gamma_6p48_Pe_2p00_tauR_0p33.lammpstrj) provided.
 
+Due to GitHub's file size limits, full production LAMMPS trajectories (~several GBs) are not hosted in this repository. A lightweight, compressed test trajectory containing 20 frames is included so you can verify the analysis pipeline immediately:
+
 ### Count_Chains5.0.py
 The code is designed to analyze the aggregation of active paramagnetic colloids. 
 The code requires an input file generated via the dump function in LAMMPS as input and needs to be in the same directory as the code itself.
