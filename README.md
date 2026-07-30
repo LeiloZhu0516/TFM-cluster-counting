@@ -8,9 +8,7 @@ The Python clustering analysis script (Count_Chains5.0.py) is completely standal
 
 1. Count_Chains5.0.py
 The code is designed to analyze the aggregation of active paramagnetic colloids. 
-The code requires an input file generated via the dump function in LAMMPS as input and needs to be in the same directory as the code itself. 
-
-The input file must be named as dump_gamma_{mygammastr}_Pe_{myPestr}_tauR_{mytauRstr}.lammpstrj
+The code requires an input file generated via the dump function in LAMMPS as input and needs to be in the same directory as the code itself. \The input file must be named as dump_gamma_{mygammastr}_Pe_{myPestr}_tauR_{mytauRstr}.lammpstrj
 Where gamma is the magnetic coupling parameter calculated as 2*m**2/T, where m is the magnetic moment of the particle and T the temperature
 Pe is the active Peclet number equal to the self propelling force defined in "fix myactive" within the LAMMPS script
 tauR is the rotational persistence time equalt to the gamma_r defined in "fix mybrownian" within the LAMMPS script
